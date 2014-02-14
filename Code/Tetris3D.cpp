@@ -45,7 +45,7 @@ Tetris3D::Tetris3D()
 	sf::ContextSettings contextSettings;
 	contextSettings.depthBits = 32;
 
-	Window = new sf::RenderWindow(sf::VideoMode(800, 600), "Tetris3D", sf::Style::Default, contextSettings);
+	Window = new sf::RenderWindow(sf::VideoMode::getFullscreenModes()[0], "Tetris3D", sf::Style::Fullscreen, contextSettings);
 	// Make it the active window for OpenGL calls
 	Window->setActive();
 
