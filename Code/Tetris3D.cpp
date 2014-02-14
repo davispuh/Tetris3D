@@ -21,7 +21,6 @@ inline void Tetris3D::SetWindowIcon()
 
 inline void Tetris3D::InitializeOpenGL()
 {
-
 	// Enable Z-buffer read and write
 	glEnable(GL_DEPTH_TEST);
 	glDepthMask(GL_TRUE);
@@ -66,19 +65,24 @@ void Tetris3D::Run()
 		sf::Event event;
 		while (Window->pollEvent(event))
 		{
-			// Close window : exit
-			if (event.type == sf::Event::Closed)
+			switch (event.type)
+			{
+			case sf::Event::Closed: // Close window : exit
 				Window->close();
-
-			// Escape key : exit
-			if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape))
-				Window->close();
-
-			// Adjust the viewport when the window is resized
-			if (event.type == sf::Event::Resized)
+				break;
+			case sf::Event::Resized:
+				// Adjust the viewport when the window is resized
 				glViewport(0, 0, event.size.width, event.size.height);
+				break;
+			case sf::Event::KeyPressed:
+				switch (event.key.code)
+				{
+				case  sf::Keyboard::Escape: // Escape key : exit
+					Window->close();
+					break;
+				}
+			}
 		}
-
 		Window->display();
 	}
 }
