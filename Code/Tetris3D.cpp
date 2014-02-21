@@ -58,31 +58,40 @@ Tetris3D::~Tetris3D()
 	delete Window;
 }
 
+void Tetris3D::ProcessEvents()
+{
+	sf::Event event;
+	while (Window->pollEvent(event))
+	{
+		switch (event.type)
+		{
+		case sf::Event::Closed: // Close window : exit
+			Window->close();
+			break;
+		case sf::Event::GainedFocus:
+			break;
+		case sf::Event::LostFocus:
+			break;
+		case sf::Event::Resized:
+			// Adjust the viewport when the window is resized
+			glViewport(0, 0, event.size.width, event.size.height);
+			break;
+		case sf::Event::KeyPressed:
+			switch (event.key.code)
+			{
+			case  sf::Keyboard::Escape: // Escape key : exit
+				Window->close();
+				break;
+			}
+		}
+	}
+}
+
 void Tetris3D::Run()
 {
 	while (Window->isOpen())
 	{
-		sf::Event event;
-		while (Window->pollEvent(event))
-		{
-			switch (event.type)
-			{
-			case sf::Event::Closed: // Close window : exit
-				Window->close();
-				break;
-			case sf::Event::Resized:
-				// Adjust the viewport when the window is resized
-				glViewport(0, 0, event.size.width, event.size.height);
-				break;
-			case sf::Event::KeyPressed:
-				switch (event.key.code)
-				{
-				case  sf::Keyboard::Escape: // Escape key : exit
-					Window->close();
-					break;
-				}
-			}
-		}
+		ProcessEvents();
 		Window->display();
 	}
 }

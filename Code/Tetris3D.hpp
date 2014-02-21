@@ -8,6 +8,7 @@ protected:
 	sf::RenderWindow *Window;
 	inline void SetWindowIcon();
 	inline void InitializeOpenGL();
+	void ProcessEvents();
 public:
 	Tetris3D();
 	~Tetris3D();
