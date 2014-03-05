@@ -16,3 +16,10 @@
 #include <SFML/OpenGL.hpp>
 
 #include "Block.hpp"
+#include "Blocks/BlockI.hpp"
+#include "Blocks/BlockJ.hpp"
+#include "Blocks/BlockL.hpp"
+#include "Blocks/BlockO.hpp"
+#include "Blocks/BlockS.hpp"
+#include "Blocks/BlockT.hpp"
+#include "Blocks/BlockZ.hpp"

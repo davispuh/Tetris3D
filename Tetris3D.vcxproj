@@ -159,6 +159,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\Block.cpp" />
+    <ClCompile Include="Code\Blocks\BlockI.cpp" />
+    <ClCompile Include="Code\Blocks\BlockJ.cpp" />
+    <ClCompile Include="Code\Blocks\BlockL.cpp" />
+    <ClCompile Include="Code\Blocks\BlockO.cpp" />
+    <ClCompile Include="Code\Blocks\BlockS.cpp" />
+    <ClCompile Include="Code\Blocks\BlockT.cpp" />
+    <ClCompile Include="Code\Blocks\BlockZ.cpp" />
     <ClCompile Include="Code\main.cpp" />
     <ClCompile Include="Code\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -170,6 +177,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Block.hpp" />
+    <ClInclude Include="Code\Blocks\BlockI.hpp" />
+    <ClInclude Include="Code\Blocks\BlockJ.hpp" />
+    <ClInclude Include="Code\Blocks\BlockL.hpp" />
+    <ClInclude Include="Code\Blocks\BlockO.hpp" />
+    <ClInclude Include="Code\Blocks\BlockS.hpp" />
+    <ClInclude Include="Code\Blocks\BlockT.hpp" />
+    <ClInclude Include="Code\Blocks\BlockZ.hpp" />
     <ClInclude Include="Code\Resource.hpp" />
     <ClInclude Include="Code\stdafx.hpp" />
     <ClInclude Include="Code\targetver.hpp" />

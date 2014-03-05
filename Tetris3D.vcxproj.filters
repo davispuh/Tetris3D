@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Blocks">
+      <UniqueIdentifier>{2139a399-7ed4-45fe-b69f-9201ecb5443b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Blocks">
+      <UniqueIdentifier>{b3822990-f4c7-400c-a9b9-2326d5dd1bee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -30,6 +36,27 @@
     <ClCompile Include="Code\Block.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Blocks\BlockI.cpp">
+      <Filter>Source Files\Blocks</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Blocks\BlockJ.cpp">
+      <Filter>Source Files\Blocks</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Blocks\BlockL.cpp">
+      <Filter>Source Files\Blocks</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Blocks\BlockO.cpp">
+      <Filter>Source Files\Blocks</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Blocks\BlockS.cpp">
+      <Filter>Source Files\Blocks</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Blocks\BlockT.cpp">
+      <Filter>Source Files\Blocks</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Blocks\BlockZ.cpp">
+      <Filter>Source Files\Blocks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Tetris3D.hpp">
@@ -46,6 +73,27 @@
     </ClInclude>
     <ClInclude Include="Code\Block.hpp">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Blocks\BlockI.hpp">
+      <Filter>Header Files\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Blocks\BlockJ.hpp">
+      <Filter>Header Files\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Blocks\BlockL.hpp">
+      <Filter>Header Files\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Blocks\BlockO.hpp">
+      <Filter>Header Files\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Blocks\BlockS.hpp">
+      <Filter>Header Files\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Blocks\BlockT.hpp">
+      <Filter>Header Files\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Blocks\BlockZ.hpp">
+      <Filter>Header Files\Blocks</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
