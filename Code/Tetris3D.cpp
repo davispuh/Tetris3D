@@ -1,9 +1,5 @@
-// Tetris3D.cpp : Defines the entry point for the application.
-//
-
 #include "stdafx.hpp"
 #include "Tetris3D.hpp"
-
 
 inline void Tetris3D::SetWindowIcon()
 {
