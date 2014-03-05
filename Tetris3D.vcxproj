@@ -159,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\Block.cpp" />
+    <ClCompile Include="Code\BlockChooser.cpp" />
     <ClCompile Include="Code\Blocks\BlockI.cpp" />
     <ClCompile Include="Code\Blocks\BlockJ.cpp" />
     <ClCompile Include="Code\Blocks\BlockL.cpp" />
@@ -177,6 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Block.hpp" />
+    <ClInclude Include="Code\BlockChooser.hpp" />
     <ClInclude Include="Code\Blocks\BlockI.hpp" />
     <ClInclude Include="Code\Blocks\BlockJ.hpp" />
     <ClInclude Include="Code\Blocks\BlockL.hpp" />

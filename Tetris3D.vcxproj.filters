@@ -42,6 +42,9 @@
     <ClCompile Include="Code\Blocks\BlockJ.cpp">
       <Filter>Source Files\Blocks</Filter>
     </ClCompile>
+    <ClCompile Include="Code\BlockChooser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Code\Blocks\BlockL.cpp">
       <Filter>Source Files\Blocks</Filter>
     </ClCompile>
@@ -79,6 +82,9 @@
     </ClInclude>
     <ClInclude Include="Code\Blocks\BlockJ.hpp">
       <Filter>Header Files\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\BlockChooser.hpp">
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Code\Blocks\BlockL.hpp">
       <Filter>Header Files\Blocks</Filter>

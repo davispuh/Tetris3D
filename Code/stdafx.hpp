@@ -23,3 +23,4 @@
 #include "Blocks/BlockS.hpp"
 #include "Blocks/BlockT.hpp"
 #include "Blocks/BlockZ.hpp"
+#include "BlockChooser.hpp"
