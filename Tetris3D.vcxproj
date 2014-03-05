@@ -158,6 +158,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Code\Block.cpp" />
     <ClCompile Include="Code\main.cpp" />
     <ClCompile Include="Code\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -168,6 +169,7 @@
     <ClCompile Include="Code\Tetris3D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Code\Block.hpp" />
     <ClInclude Include="Code\Resource.hpp" />
     <ClInclude Include="Code\stdafx.hpp" />
     <ClInclude Include="Code\targetver.hpp" />

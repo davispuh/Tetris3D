@@ -14,3 +14,5 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/OpenGL.hpp>
+
+#include "Block.hpp"
