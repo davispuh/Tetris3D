@@ -15,6 +15,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/OpenGL.hpp>
 
+#include "BaseBlock.hpp"
 #include "Block.hpp"
 #include "Blocks/BlockI.hpp"
 #include "Blocks/BlockJ.hpp"

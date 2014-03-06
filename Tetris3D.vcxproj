@@ -158,6 +158,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Code\BaseBlock.cpp" />
     <ClCompile Include="Code\Block.cpp" />
     <ClCompile Include="Code\BlockChooser.cpp" />
     <ClCompile Include="Code\Blocks\BlockI.cpp" />
@@ -178,6 +179,7 @@
     <ClCompile Include="Code\Tetris3D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Code\BaseBlock.hpp" />
     <ClInclude Include="Code\Block.hpp" />
     <ClInclude Include="Code\BlockChooser.hpp" />
     <ClInclude Include="Code\Blocks\BlockI.hpp" />

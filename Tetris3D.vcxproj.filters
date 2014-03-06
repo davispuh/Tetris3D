@@ -63,6 +63,9 @@
     <ClCompile Include="Code\Blocks\BlockZ.cpp">
       <Filter>Source Files\Blocks</Filter>
     </ClCompile>
+    <ClCompile Include="Code\BaseBlock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Tetris3D.hpp">
@@ -106,6 +109,9 @@
     </ClInclude>
     <ClInclude Include="Code\Blocks\BlockZ.hpp">
       <Filter>Header Files\Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\BaseBlock.hpp">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
