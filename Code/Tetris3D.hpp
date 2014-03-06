@@ -9,6 +9,7 @@ protected:
 	inline void SetWindowIcon();
 	inline void InitializeOpenGL();
 	void ProcessEvents();
+	Field Field;
 public:
 	Tetris3D();
 	~Tetris3D();

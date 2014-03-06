@@ -85,9 +85,21 @@ void Tetris3D::ProcessEvents()
 
 void Tetris3D::Run()
 {
+	Field.Start();
 	while (Window->isOpen())
 	{
 		ProcessEvents();
+		if (Field.HaveSpace())
+		{
+			Field.Update();
+			Field.Draw();
+		}
+		else
+		{
+			// GameOver
+			// TODO
+			Field.Destroy();
+		}
 		Window->display();
 	}
 }
