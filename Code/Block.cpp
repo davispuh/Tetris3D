@@ -7,12 +7,18 @@ Block::Block()
 	Position.z = 0.0;
 }
 
-void Block::Draw()
+void Block::HandleInput()
 {
 
 }
 
 void Block::Update()
+{
+
+}
+
+
+void Block::Draw()
 {
 
 }
