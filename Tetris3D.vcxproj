@@ -167,6 +167,7 @@
     <ClCompile Include="Code\Blocks\BlockS.cpp" />
     <ClCompile Include="Code\Blocks\BlockT.cpp" />
     <ClCompile Include="Code\Blocks\BlockZ.cpp" />
+    <ClCompile Include="Code\Field.cpp" />
     <ClCompile Include="Code\main.cpp" />
     <ClCompile Include="Code\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -186,6 +187,7 @@
     <ClInclude Include="Code\Blocks\BlockS.hpp" />
     <ClInclude Include="Code\Blocks\BlockT.hpp" />
     <ClInclude Include="Code\Blocks\BlockZ.hpp" />
+    <ClInclude Include="Code\Field.hpp" />
     <ClInclude Include="Code\Resource.hpp" />
     <ClInclude Include="Code\stdafx.hpp" />
     <ClInclude Include="Code\targetver.hpp" />
