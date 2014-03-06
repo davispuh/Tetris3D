@@ -9,6 +9,7 @@ protected:
 	inline void SetWindowIcon();
 	inline void InitializeOpenGL();
 	void ProcessEvents();
+	void Resize(GLsizei x, GLsizei y);
 	Field Field;
 public:
 	Tetris3D();

@@ -20,19 +20,27 @@ inline void Tetris3D::InitializeOpenGL()
 	// Enable Z-buffer read and write
 	glEnable(GL_DEPTH_TEST);
 	glDepthMask(GL_TRUE);
+	glClearColor(1.0f, 1.0f, 1.0f, 0.5f);
 	glClearDepth(1.f);
 
 	// Disable lighting
 	glDisable(GL_LIGHTING);
 
-	// Configure the viewport (the same size as the window)
-	glViewport(0, 0, Window->getSize().x, Window->getSize().y);
+	Resize(Window->getSize().x, Window->getSize().y);
+}
 
-	// Setup a perspective projection
+void Tetris3D::Resize(GLsizei x, GLsizei y)
+{
+	glViewport(0, 0, x, y);
+
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	GLfloat ratio = static_cast<float>(Window->getSize().x) / Window->getSize().y;
+
+	GLfloat ratio = static_cast<float>(x) / y;
 	glFrustum(-ratio, ratio, -1.f, 1.f, 1.f, 500.f);
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
 }
 
 Tetris3D::Tetris3D()
@@ -69,8 +77,7 @@ void Tetris3D::ProcessEvents()
 		case sf::Event::LostFocus:
 			break;
 		case sf::Event::Resized:
-			// Adjust the viewport when the window is resized
-			glViewport(0, 0, event.size.width, event.size.height);
+			Resize(event.size.width, event.size.height);
 			break;
 		case sf::Event::KeyPressed:
 			switch (event.key.code)
@@ -88,6 +95,7 @@ void Tetris3D::Run()
 	Field.Start();
 	while (Window->isOpen())
 	{
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		ProcessEvents();
 		if (Field.HaveSpace())
 		{
