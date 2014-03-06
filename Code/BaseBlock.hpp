@@ -7,4 +7,5 @@ protected:
 
 public:
 	BaseBlock(int x, int y, int z);
+	sf::Vector3i GetPosition();
 };

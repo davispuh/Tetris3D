@@ -6,3 +6,8 @@ BaseBlock::BaseBlock(int x, int y, int z)
 	Position.y = y;
 	Position.z = z;
 }
+
+sf::Vector3i BaseBlock::GetPosition()
+{
+	return Position;
+}
