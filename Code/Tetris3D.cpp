@@ -92,7 +92,7 @@ void Tetris3D::ProcessEvents()
 
 void Tetris3D::Run()
 {
-	Field.Start();
+	Field.Start(10, 10, 22);
 	while (Window->isOpen())
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

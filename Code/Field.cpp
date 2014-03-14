@@ -9,8 +9,11 @@ Field::~Field()
 	Destroy();
 }
 
-void Field::Start()
+void Field::Start(unsigned char Width, unsigned char Length, unsigned char Height)
 {
+	FieldWidth = Width;
+	FieldLength = Length;
+	FieldHeight = Height;
 }
 
 void Field::Destroy()
