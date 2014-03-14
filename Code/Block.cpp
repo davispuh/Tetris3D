@@ -7,12 +7,12 @@ Block::Block()
 	Position.z = 0.0;
 }
 
-void Block::HandleInput()
+void Block::HandleInput(sf::Time ElapsedTime)
 {
 
 }
 
-void Block::Update()
+void Block::Update(sf::Time ElapsedTime)
 {
 
 }

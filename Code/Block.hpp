@@ -8,7 +8,7 @@ protected:
 public:
 	Block();
 	static Block *Create();
-	virtual void HandleInput();
-	virtual void Update();
+	virtual void HandleInput(sf::Time ElapsedTime);
+	virtual void Update(sf::Time ElapsedTime);
 	virtual void Draw();
 };

@@ -44,8 +44,11 @@ Block *Field::ActivateBlock() {
 	{
 		ActiveBlock = AddBlock();
 	}
-	ActiveBlock->HandleInput();
 	return ActiveBlock;
+}
+
+void Field::HandleInput(sf::Time ElapsedTime) {
+	ActiveBlock->HandleInput(ElapsedTime);
 }
 
 bool Field::IsSectionFull()
@@ -54,15 +57,19 @@ bool Field::IsSectionFull()
 	return false;
 }
 
-void Field::Update()
+void Field::Update(sf::Time ElapsedTime)
 {
-	ActivateBlock();
 	if (IsSectionFull())
 	{
 		for (unsigned int i = 0; i < BlockCount; i++)
 		{
-			FieldBlocks[i]->Update();
+			FieldBlocks[i]->Update(ElapsedTime);
 		}
+	}
+	else
+	{
+		ActivateBlock();
+		HandleInput(ElapsedTime);
 	}
 }
 

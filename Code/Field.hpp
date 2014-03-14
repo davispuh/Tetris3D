@@ -20,6 +20,7 @@ public:
 	void Start(unsigned char Width, unsigned char Length, unsigned char Height);
 	void Destroy();
 	bool HaveSpace();
-	void Update();
+	void HandleInput(sf::Time ElapsedTime);
+	void Update(sf::Time ElapsedTime);
 	void Draw();
 };

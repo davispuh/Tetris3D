@@ -92,14 +92,16 @@ void Tetris3D::ProcessEvents()
 
 void Tetris3D::Run()
 {
+	sf::Clock clock;
 	Field.Start(10, 10, 22);
 	while (Window->isOpen())
 	{
+		sf::Time ElapsedTime = clock.restart();
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		ProcessEvents();
 		if (Field.HaveSpace())
 		{
-			Field.Update();
+			Field.Update(ElapsedTime);
 			Field.Draw();
 		}
 		else
