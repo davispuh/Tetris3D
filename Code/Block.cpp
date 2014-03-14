@@ -19,6 +19,11 @@ sf::Vector3i Block::GetLocation()
 	return sf::Vector3i(Position / BaseSize);
 }
 
+bool Block::AtLocation(int X, int Y, int Z)
+{
+	return false;
+}
+
 void Block::HandleInput(sf::Time ElapsedTime)
 {
 

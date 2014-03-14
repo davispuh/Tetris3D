@@ -11,12 +11,18 @@ Block *BlockS::Create()
 	return new BlockS();
 }
 
-void BlockS::Draw()
+bool BlockS::AtLocation(int X, int Y, int Z)
+{
+	// TODO
+	return false;
+}
+
+void BlockS::Update(sf::Time ElapsedTime)
 {
 	// TODO
 }
 
-void BlockS::Update()
+void BlockS::Draw()
 {
 	// TODO
 }
