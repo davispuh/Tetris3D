@@ -35,6 +35,7 @@ bool Field::HaveSpace()
 Block *Field::AddBlock()
 {
 	auto Block = BlockChooser::GetBlock();
+	Block->SetLocation(sf::Vector3i(FieldWidth / 2, FieldLength / 2, FieldHeight));
 	FieldBlocks[BlockCount++] = Block;
 	return Block;
 }
