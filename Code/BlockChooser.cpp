@@ -2,23 +2,22 @@
 
 namespace BlockChooser {
 
-	BlockFactory BlockFactories[MAX_BLOCK_COUNT];
-	unsigned int FactoryCount = 0;
+	std::vector<BlockFactory> BlockFactories;
 
 	void InitBlockChooser()
 	{
-		BlockFactories[FactoryCount++] = &BlockI::Create;
-		BlockFactories[FactoryCount++] = &BlockJ::Create;
-		BlockFactories[FactoryCount++] = &BlockL::Create;
-		BlockFactories[FactoryCount++] = &BlockO::Create;
-		BlockFactories[FactoryCount++] = &BlockS::Create;
-		BlockFactories[FactoryCount++] = &BlockT::Create;
-		BlockFactories[FactoryCount++] = &BlockZ::Create;
+		BlockFactories.push_back(&BlockI::Create);
+		BlockFactories.push_back(&BlockJ::Create);
+		BlockFactories.push_back(&BlockL::Create);
+		BlockFactories.push_back(&BlockO::Create);
+		BlockFactories.push_back(&BlockS::Create);
+		BlockFactories.push_back(&BlockT::Create);
+		BlockFactories.push_back(&BlockZ::Create);
 	}
 
 	Block *GetBlock()
 	{
-		return BlockFactories[rand() % FactoryCount]();
+		return BlockFactories[rand() % BlockFactories.size()]();
 	}
 
 };

@@ -6,8 +6,7 @@ protected:
 	unsigned char FieldWidth = 10;
 	unsigned char FieldLength = 10;
 	unsigned char FieldHeight = 22;
-	Block *FieldBlocks[100];
-	unsigned int BlockCount = 0;
+	std::vector<Block*> FieldBlocks;
 	Block *ActiveBlock = nullptr;
 	Block *AddBlock();
 

@@ -18,11 +18,11 @@ void Field::Start(unsigned char Width, unsigned char Length, unsigned char Heigh
 
 void Field::Destroy()
 {
-	for (unsigned int i = 0; i < BlockCount; i++)
+	for (auto Block = FieldBlocks.begin(); Block != FieldBlocks.end(); ++Block)
 	{
-		delete FieldBlocks[i];
+		delete *Block;
 	}
-	BlockCount = 0;
+	FieldBlocks.clear();
 	ActiveBlock = nullptr;
 }
 
@@ -36,7 +36,7 @@ Block *Field::AddBlock()
 {
 	auto Block = BlockChooser::GetBlock();
 	Block->SetLocation(sf::Vector3i(FieldWidth / 2, FieldLength / 2, FieldHeight));
-	FieldBlocks[BlockCount++] = Block;
+	FieldBlocks.push_back(Block);
 	return Block;
 }
 
@@ -62,9 +62,9 @@ void Field::Update(sf::Time ElapsedTime)
 {
 	if (IsSectionFull())
 	{
-		for (unsigned int i = 0; i < BlockCount; i++)
+		for (auto Block = FieldBlocks.begin(); Block != FieldBlocks.end(); ++Block)
 		{
-			FieldBlocks[i]->Update(ElapsedTime);
+			(*Block)->Update(ElapsedTime);
 		}
 	}
 	else
@@ -76,8 +76,8 @@ void Field::Update(sf::Time ElapsedTime)
 
 void Field::Draw()
 {
-	for (unsigned int i = 0; i < BlockCount; i++)
+	for (auto Block = FieldBlocks.begin(); Block != FieldBlocks.end(); ++Block)
 	{
-		FieldBlocks[i]->Draw();
+		(*Block)->Draw();
 	}
 }

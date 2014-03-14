@@ -7,6 +7,19 @@ Block::Block()
 	Position.z = 0.0;
 }
 
+Block::~Block()
+{
+
+}
+
+void Block::DeleteParts()
+{
+	for (auto BlockPart = Parts.begin(); BlockPart != Parts.end(); ++BlockPart)
+	{
+		delete *BlockPart;
+	};
+}
+
 void Block::SetLocation(sf::Vector3i Location)
 {
 	Position.x = Location.x * BaseSize;
