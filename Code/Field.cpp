@@ -28,8 +28,7 @@ void Field::Destroy()
 
 bool Field::HaveSpace()
 {
-	// TODO
-	return true;
+	return !IsSectionFull(FieldHeight - 1);
 }
 
 Block *Field::AddBlock()
@@ -52,15 +51,33 @@ void Field::HandleInput(sf::Time ElapsedTime) {
 	ActiveBlock->HandleInput(ElapsedTime);
 }
 
-bool Field::IsSectionFull()
+bool Field::IsSectionFull(unsigned char row)
 {
-	// TODO
+	unsigned short count = 0;
+	for (unsigned char z = 0; z < FieldLength; z++)
+	{
+		for (unsigned char x = 0; x < FieldWidth; x++) {
+			for (auto Block = FieldBlocks.begin(); Block != FieldBlocks.end(); ++Block)
+			{
+				if ((*Block)->AtLocation(x, row, z)) count++;
+			};
+		};
+	};
+	return count >= FieldLength*FieldWidth;
+}
+
+bool Field::AnySectionFull()
+{
+	for (unsigned char row = 0; row < FieldHeight; row++)
+	{
+		if (IsSectionFull(row)) return true;
+	};
 	return false;
 }
 
 void Field::Update(sf::Time ElapsedTime)
 {
-	if (IsSectionFull())
+	if (AnySectionFull())
 	{
 		for (auto Block = FieldBlocks.begin(); Block != FieldBlocks.end(); ++Block)
 		{

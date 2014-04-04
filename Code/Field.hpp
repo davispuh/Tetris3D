@@ -11,7 +11,8 @@ protected:
 	Block *AddBlock();
 
 	Block *ActivateBlock();
-	bool IsSectionFull();
+	bool IsSectionFull(unsigned char row);
+	bool AnySectionFull();
 
 public:
 	Field();
