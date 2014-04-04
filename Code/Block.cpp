@@ -34,6 +34,14 @@ sf::Vector3i Block::GetLocation()
 
 bool Block::AtLocation(int X, int Y, int Z)
 {
+	sf::Vector3i Location = GetLocation();
+	for (auto BlockPart = Parts.begin(); BlockPart != Parts.end(); ++BlockPart)
+	{
+		if ((*BlockPart)->AtLocation(X - Location.x, Y - Location.y, Z - Location.z))
+		{
+			return true;
+		};
+	};
 	return false;
 }
 
