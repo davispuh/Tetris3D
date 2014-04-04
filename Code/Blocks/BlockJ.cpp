@@ -19,12 +19,6 @@ Block *BlockJ::Create()
 	return new BlockJ();
 }
 
-bool BlockJ::AtLocation(int X, int Y, int Z)
-{
-	// TODO
-	return false;
-}
-
 void BlockJ::Update(sf::Time ElapsedTime)
 {
 	// TODO
