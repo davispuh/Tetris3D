@@ -3,6 +3,7 @@
 
 int main()
 {
+	srand((unsigned int)time(NULL));
 	BlockChooser::InitBlockChooser();
 	Tetris3D tetris;
 	tetris.Run();
