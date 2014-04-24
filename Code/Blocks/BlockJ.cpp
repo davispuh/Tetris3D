@@ -18,13 +18,3 @@ Block *BlockJ::Create()
 {
 	return new BlockJ();
 }
-
-void BlockJ::Update(sf::Time ElapsedTime)
-{
-	// TODO
-}
-
-void BlockJ::Draw()
-{
-	// TODO
-}

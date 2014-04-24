@@ -18,13 +18,3 @@ Block *BlockL::Create()
 {
 	return new BlockL();
 }
-
-void BlockL::Update(sf::Time ElapsedTime)
-{
-	// TODO
-}
-
-void BlockL::Draw()
-{
-	// TODO
-}

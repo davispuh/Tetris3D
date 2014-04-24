@@ -22,13 +22,3 @@ Block *BlockO::Create()
 {
 	return new BlockO();
 }
-
-void BlockO::Update(sf::Time ElapsedTime)
-{
-	// TODO
-}
-
-void BlockO::Draw()
-{
-	// TODO
-}

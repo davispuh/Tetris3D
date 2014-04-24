@@ -11,10 +11,10 @@ public:
 	Block();
 	virtual ~Block();
 	static Block *Create();
-	virtual void SetLocation(sf::Vector3i Location);
-	virtual sf::Vector3i GetLocation();
-	virtual bool AtLocation(int X, int Y, int Z);
-	virtual void HandleInput(sf::Time ElapsedTime);
-	virtual void Update(sf::Time ElapsedTime);
-	virtual void Draw();
+	void SetLocation(sf::Vector3i Location);
+	sf::Vector3i GetLocation();
+	bool AtLocation(int X, int Y, int Z);
+	void HandleInput(sf::Time ElapsedTime);
+	void Update(sf::Time ElapsedTime);
+	void Draw();
 };

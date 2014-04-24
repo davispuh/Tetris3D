@@ -18,13 +18,3 @@ Block *BlockZ::Create()
 {
 	return new BlockZ();
 }
-
-void BlockZ::Update(sf::Time ElapsedTime)
-{
-	// TODO
-}
-
-void BlockZ::Draw()
-{
-	// TODO
-}

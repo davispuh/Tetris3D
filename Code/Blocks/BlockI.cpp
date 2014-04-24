@@ -1,5 +1,6 @@
 #include "stdafx.hpp"
 
+
 BlockI::BlockI()
 {
 	Parts.push_back(new BaseBlock(0, 0, 0));
@@ -16,14 +17,4 @@ BlockI::~BlockI()
 Block *BlockI::Create()
 {
 	return new BlockI();
-}
-
-void BlockI::Update(sf::Time ElapsedTime)
-{
-	// TODO
-}
-
-void BlockI::Draw()
-{
-	// TODO
 }
