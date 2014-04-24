@@ -14,6 +14,9 @@ void Field::Start(unsigned char Width, unsigned char Length, unsigned char Heigh
 	FieldWidth = Width;
 	FieldLength = Length;
 	FieldHeight = Height;
+	StartWidth = FieldWidth / 2;
+	StartLength = FieldLength / 2;
+	StartHeight = FieldHeight;
 }
 
 void Field::Destroy()
@@ -34,9 +37,9 @@ bool Field::HaveSpace()
 Block *Field::AddBlock()
 {
 	auto Block = BlockChooser::GetBlock();
-	Block->SetLocation(sf::Vector3i(FieldWidth / 2, FieldLength / 2, FieldHeight));
 	Block->SetBlocks(&FieldBlocks);
 	Block->SetBounds(FieldWidth, FieldLength);
+	Block->SetLocation(sf::Vector3i(StartWidth, StartHeight, StartLength));
 	FieldBlocks.push_back(Block);
 	return Block;
 }

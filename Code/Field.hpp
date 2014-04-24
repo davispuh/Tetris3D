@@ -6,6 +6,11 @@ protected:
 	unsigned char FieldWidth = 10;
 	unsigned char FieldLength = 10;
 	unsigned char FieldHeight = 22;
+
+	unsigned char StartWidth = 5;
+	unsigned char StartLength = 5;
+	unsigned char StartHeight = 22;
+
 	std::vector<Block*> FieldBlocks;
 	Block *ActiveBlock = nullptr;
 	Block *AddBlock();
