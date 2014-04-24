@@ -36,14 +36,45 @@ void Block::SetBounds(int Width, int Length)
 
 void Block::SetLocation(sf::Vector3i Location)
 {
-	Position.x = Location.x * BaseSize;
-	Position.y = Location.y * BaseSize;
-	Position.z = Location.z * BaseSize;
+	Position.x = ToPosition(Location.x);
+	Position.y = ToPosition(Location.y);
+	Position.z = ToPosition(Location.z);
+}
+
+glm::vec3 Block::ToLocation(glm::vec3 Position, float BaseSize)
+{
+	return glm::floor(Position / BaseSize);
+}
+
+int Block::ToLocation(float Position, float BaseSize)
+{
+	return (int)std::floor(Position / BaseSize);
+}
+
+float Block::ToPosition(int Location, float BaseSize)
+{
+	return Location * BaseSize;
+}
+
+glm::vec3 Block::ToLocation(glm::vec3 Position)
+{
+	return ToLocation(Position, BaseSize);
+}
+
+int Block::ToLocation(float Position)
+{
+	return ToLocation(Position, BaseSize);
+}
+
+float Block::ToPosition(int Location)
+{
+	return ToPosition(Location, BaseSize);
 }
 
 sf::Vector3i Block::GetLocation()
 {
-	return sf::Vector3i(Position / BaseSize);
+	glm::vec3 Location = Block::ToLocation(this->Position);
+	return sf::Vector3i((int)Location.x, (int)Location.y, (int)Location.z);
 }
 
 bool Block::AtLocation(int X, int Y, int Z)

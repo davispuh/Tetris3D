@@ -18,6 +18,12 @@ public:
 	Block();
 	virtual ~Block();
 	static Block *Create();
+	static inline glm::vec3 ToLocation(glm::vec3 Position, float BaseSize);
+	static int inline ToLocation(float Position, float BaseSize);
+	static float inline ToPosition(int Location, float BaseSize);
+	inline glm::vec3 ToLocation(glm::vec3 Position);
+	int inline ToLocation(float Position);
+	float inline ToPosition(int Location);
 	void SetBlocks(std::vector<Block*> *AllBlocks);
 	void SetBounds(int Width, int Length);
 	void SetLocation(sf::Vector3i Location);
