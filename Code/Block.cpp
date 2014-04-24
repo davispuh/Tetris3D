@@ -120,6 +120,106 @@ bool Block::MoveableTo(int X, int Y, int Z)
 
 void Block::HandleInput(sf::Time ElapsedTime)
 {
+	if (!Moveable) return;
+	float Speed = 5.0f;
+	sf::Vector3i Location = GetLocation();
+	bool Further = true;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	{
+		Speed *= 10.0f;
+		float nextY = Position.y - ElapsedTime.asSeconds() * Speed;
+		int FinalLocation = ToLocation(nextY);
+		for (int i = Location.y; i >= FinalLocation; i--)
+		{
+			Position.y = ToPosition(i);
+			if (!MoveableTo(Location.x, i, Location.z))
+			{
+				Position.y += ToPosition(1);
+				Moveable = false;
+				break;
+			};
+		};
+		if (Moveable)
+		{
+			Position.y += nextY - ToPosition(FinalLocation);
+		};
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	{
+		float nextX = Position.x - ElapsedTime.asSeconds() * Speed;
+		int FinalLocation = ToLocation(nextX);
+		for (int i = Location.x; i >= FinalLocation; i--)
+		{
+			Position.x = ToPosition(i);
+			if (!MoveableTo(i, Location.y, Location.z))
+			{
+				Position.x += ToPosition(1);
+				Further = false;
+				break;
+			}
+		}
+		if (Further)
+		{
+			Position.x += nextX - ToPosition(FinalLocation);
+		};
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	{
+		float nextX = Position.x + ElapsedTime.asSeconds() * Speed;
+		int FinalLocation = ToLocation(nextX) + 1;
+		for (int i = Location.x; i <= FinalLocation; i++)
+		{
+			Position.x = ToPosition(i);
+			if (!MoveableTo(i, Location.y, Location.z))
+			{
+				Position.x -= ToPosition(1);
+				Further = false;
+				break;
+			};
+		};
+		if (Further)
+		{
+			Position.x += nextX - ToPosition(FinalLocation);
+		};
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+	{
+		float nextZ = Position.z - ElapsedTime.asSeconds() * Speed;
+		int FinalLocation = ToLocation(nextZ);
+		for (int i = Location.z; i >= FinalLocation; i--)
+		{
+			Position.z = ToPosition(i);
+			if (!MoveableTo(Location.x, Location.y, i))
+			{
+				Position.z += ToPosition(1);
+				Further = false;
+				break;
+			};
+		};
+		if (Further)
+		{
+			Position.z += nextZ - ToPosition(FinalLocation);
+		};
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	{
+		float nextZ = Position.z + ElapsedTime.asSeconds() * Speed;
+		int FinalLocation = ToLocation(nextZ) + 1;
+		for (int i = Location.z; i <= FinalLocation; i++)
+		{
+			Position.z = ToPosition(i);
+			if (!MoveableTo(Location.x, Location.y, i))
+			{
+				Position.z -= ToPosition(1);
+				Further = false;
+				break;
+			};
+		};
+		if (Further)
+		{
+			Position.z += nextZ - ToPosition(FinalLocation);
+		};
+	};
 }
 
 void Block::Update(sf::Time ElapsedTime)
