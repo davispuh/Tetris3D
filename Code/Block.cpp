@@ -224,7 +224,25 @@ void Block::HandleInput(sf::Time ElapsedTime)
 
 void Block::Update(sf::Time ElapsedTime)
 {
-
+	if (!Moveable) return;
+	float Speed = 2.0f;
+	sf::Vector3i Location = GetLocation();
+	float nextY = Position.y - ElapsedTime.asSeconds() * Speed;
+	int FinalLocation = ToLocation(nextY);
+	for (int i = Location.y; i >= FinalLocation; i--)
+	{
+		Position.y = ToPosition(i);
+		if (!MoveableTo(Location.x, i, Location.z))
+		{
+			Position.y += ToPosition(1);
+			Moveable = false;
+			break;
+		};
+	};
+	if (Moveable)
+	{
+		Position.y += nextY - ToPosition(FinalLocation);
+	};
 }
 
 void Block::Draw()
