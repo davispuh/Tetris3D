@@ -17,14 +17,29 @@ inline void Tetris3D::SetWindowIcon()
 
 inline void Tetris3D::InitializeOpenGL()
 {
-	// Enable Z-buffer read and write
-	glEnable(GL_DEPTH_TEST);
-	glDepthMask(GL_TRUE);
-	glClearColor(1.0f, 1.0f, 1.0f, 0.5f);
-	glClearDepth(1.f);
+	glewExperimental = GL_TRUE;
+	if (glewInit() != GLEW_OK)
+		throw;
 
-	// Disable lighting
-	glDisable(GL_LIGHTING);
+
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClearDepth(1.0f);
+	glDepthRange(0.0f, 1.0f);
+	glDepthFunc(GL_LEQUAL);
+	glDepthMask(GL_TRUE);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glCullFace(GL_BACK);
+	glFrontFace(GL_CCW);
+	glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
+	glHint(GL_POLYGON_SMOOTH_HINT, GL_NICEST);
+	glLineWidth(3.5f);
+
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_DEPTH_CLAMP);
+	glEnable(GL_CULL_FACE);
+	glEnable(GL_BLEND);
+	glEnable(GL_LINE_SMOOTH);
+	glEnable(GL_POLYGON_SMOOTH);
 
 	Resize(Window->getSize().x, Window->getSize().y);
 }
@@ -45,12 +60,14 @@ void Tetris3D::Resize(GLsizei x, GLsizei y)
 
 Tetris3D::Tetris3D()
 {
-	// Request a 32-bits depth buffer when creating the window
 	sf::ContextSettings contextSettings;
 	contextSettings.depthBits = 32;
+	contextSettings.stencilBits = 8;
+	contextSettings.antialiasingLevel = 8;
+	contextSettings.majorVersion = 4;
+	contextSettings.minorVersion = 3;
 
 	Window = new sf::RenderWindow(sf::VideoMode::getFullscreenModes()[0], "Tetris3D", sf::Style::Fullscreen, contextSettings);
-	// Make it the active window for OpenGL calls
 	Window->setActive();
 
 	SetWindowIcon();
