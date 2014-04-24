@@ -11,6 +11,13 @@
 // Windows Header Files:
 // #include <windows.h>
 
+#define GLM_FORCE_RADIANS
+#include <glm/fwd.hpp>
+#include <glm/common.hpp>
+#include <glm/matrix.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/OpenGL.hpp>
