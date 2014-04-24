@@ -23,6 +23,17 @@ void Block::DeleteParts()
 	};
 }
 
+void Block::SetBlocks(std::vector<Block*> *AllBlocks)
+{
+	this->AllBlocks = AllBlocks;
+}
+
+void Block::SetBounds(int Width, int Length)
+{
+	Bounds.Width = (float)Width;
+	Bounds.Length = (float)Length;
+}
+
 void Block::SetLocation(sf::Vector3i Location)
 {
 	Position.x = Location.x * BaseSize;

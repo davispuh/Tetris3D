@@ -35,6 +35,8 @@ Block *Field::AddBlock()
 {
 	auto Block = BlockChooser::GetBlock();
 	Block->SetLocation(sf::Vector3i(FieldWidth / 2, FieldLength / 2, FieldHeight));
+	Block->SetBlocks(&FieldBlocks);
+	Block->SetBounds(FieldWidth, FieldLength);
 	FieldBlocks.push_back(Block);
 	return Block;
 }
