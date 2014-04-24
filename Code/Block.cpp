@@ -90,16 +90,42 @@ bool Block::AtLocation(int X, int Y, int Z)
 	return false;
 }
 
+bool Block::IsMoveable() {
+	return Moveable;
+}
+
+bool Block::MoveableTo(int X, int Y, int Z)
+{
+	for (auto BlockPart = Parts.begin(); BlockPart != Parts.end(); ++BlockPart)
+	{
+		sf::Vector3i PartPosition = (*BlockPart)->GetPosition();
+		PartPosition.x += X;
+		PartPosition.y += Y;
+		PartPosition.z += Z;
+		if (PartPosition.x < 0 || PartPosition.x >= Bounds.Width || PartPosition.y < 0 || PartPosition.z < 0 || PartPosition.z >= Bounds.Length)
+		{
+			return false;
+		};
+		for (auto Block = AllBlocks->begin(); Block != AllBlocks->end(); ++Block)
+		{
+			if ((*Block) == this) continue;
+			if ((*Block)->AtLocation(PartPosition.x, PartPosition.y, PartPosition.z))
+			{
+				return false;
+			};
+		};
+	};
+	return true;
+}
+
 void Block::HandleInput(sf::Time ElapsedTime)
 {
-
 }
 
 void Block::Update(sf::Time ElapsedTime)
 {
 
 }
-
 
 void Block::Draw()
 {

@@ -5,13 +5,14 @@ class Block
 protected:
 	std::vector<Block*> *AllBlocks;
 	std::vector<BaseBlock*> Parts;
-	sf::Vector3f Position;
 	struct {
 		float Width;
 		float Length;
 	} Bounds;
+	glm::vec3 Position;
 	sf::Color Color;
 	float BaseSize = 1.0f;
+	bool Moveable = true;
 	void DeleteParts();
 
 public:
@@ -29,6 +30,8 @@ public:
 	void SetLocation(sf::Vector3i Location);
 	sf::Vector3i GetLocation();
 	bool AtLocation(int X, int Y, int Z);
+	bool IsMoveable();
+	bool MoveableTo(int X, int Y, int Z);
 	void HandleInput(sf::Time ElapsedTime);
 	void Update(sf::Time ElapsedTime);
 	void Draw();
