@@ -2,9 +2,12 @@
 
 Block::Block()
 {
-	Position.x = 0.0;
-	Position.y = 0.0;
-	Position.z = 0.0;
+	Position.x = 0.0f;
+	Position.y = 0.0f;
+	Position.z = 0.0f;
+	Color.r = (rand() % 21 + 3) * 10;
+	Color.g = (rand() % 21 + 3) * 10;
+	Color.b = (rand() % 21 + 3) * 10;
 }
 
 Block::~Block()

@@ -5,8 +5,10 @@ class Block
 protected:
 	std::vector<BaseBlock*> Parts;
 	sf::Vector3f Position;
+	sf::Color Color;
 	float BaseSize = 1.0f;
 	void DeleteParts();
+
 public:
 	Block();
 	virtual ~Block();
