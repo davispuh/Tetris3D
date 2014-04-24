@@ -94,22 +94,25 @@ void Tetris3D::Run()
 {
 	sf::Clock clock;
 	Field.Start(10, 10, 22);
+	this->State = GameState::Play;
 	while (Window->isOpen())
 	{
 		sf::Time ElapsedTime = clock.restart();
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		ProcessEvents();
-		if (Field.HaveSpace())
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		if (State == GameState::Play)
 		{
-			Field.Update(ElapsedTime);
-			Field.Draw();
-		}
-		else
-		{
-			// GameOver
-			// TODO
-			Field.Destroy();
-		}
+			if (Field.HaveSpace())
+			{
+				Field.Update(ElapsedTime);
+			}
+			else
+			{
+				State = GameState::End;
+			};
+		};
+		Field.Draw();
 		Window->display();
-	}
+	};
+	Field.Destroy();
 }

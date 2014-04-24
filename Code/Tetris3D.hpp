@@ -2,10 +2,18 @@
 
 #include "resource.hpp"
 
+const enum class GameState
+{
+	Play = 0,
+	Pause,
+	End
+};
+
 class Tetris3D
 {
 protected:
 	sf::RenderWindow *Window;
+	GameState State;
 	inline void SetWindowIcon();
 	inline void InitializeOpenGL();
 	void ProcessEvents();

@@ -31,7 +31,15 @@ void Field::Destroy()
 
 bool Field::HaveSpace()
 {
-	return !IsSectionFull(FieldHeight - 1);
+	if (ActiveBlock != nullptr && ActiveBlock->IsMoveable()) return true;
+	for (auto Block = FieldBlocks.begin(); Block != FieldBlocks.end(); ++Block)
+	{
+		if ((*Block)->AtLocation(StartWidth, StartHeight, StartLength))
+		{
+			return false;
+		}
+	};
+	return true;
 }
 
 Block *Field::AddBlock()
@@ -92,8 +100,10 @@ void Field::Update(sf::Time ElapsedTime)
 	else
 	{
 		ActivateBlock();
+		ActiveBlock->Update(ElapsedTime);
 		HandleInput(ElapsedTime);
 	}
+	if (!ActiveBlock->IsMoveable()) ActiveBlock = nullptr;
 }
 
 void Field::Draw()
