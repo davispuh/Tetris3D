@@ -247,5 +247,16 @@ void Block::Update(sf::Time ElapsedTime)
 
 void Block::Draw()
 {
-
+	World::ModelMatrix().push(glm::translate(World::ModelMatrix().top(), glm::vec3(Position.x, Position.y, Position.z)));
+	BaseBlock::SetColor((float)Color.r / 255.0f, Color.g / 255.0f, Color.b / 255.0f, 1.0f);
+	for (auto Part = Parts.begin(); Part != Parts.end(); ++Part)
+	{
+		auto PartPosition = (*Part)->GetPosition();
+		World::ModelMatrix().push(glm::translate(World::ModelMatrix().top(), glm::vec3((float)PartPosition.x, (float)PartPosition.y, (float)PartPosition.z)));
+		World::UpdateModel();
+		BaseBlock::Draw();
+		World::ModelMatrix().pop();
+	};
+	World::ModelMatrix().pop();
+	World::UpdateModel();
 }
