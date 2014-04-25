@@ -33,6 +33,8 @@ inline void Tetris3D::InitializeOpenGL()
 
 	World::Bind((unsigned int)UniformBindings::Transformation);
 
+	Field::Init();
+
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClearDepth(1.0f);
 	glDepthRange(0.0f, 1.0f);
@@ -57,6 +59,7 @@ inline void Tetris3D::InitializeOpenGL()
 
 inline void Tetris3D::DeInitializeOpenGL()
 {
+	Field::DeInit();
 	World::UnBind();
 }
 

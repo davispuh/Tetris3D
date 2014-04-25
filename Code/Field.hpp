@@ -11,6 +11,14 @@ protected:
 	unsigned char StartLength = 5;
 	unsigned char StartHeight = 22;
 
+	struct Vertex {
+		GLfloat vertex[3];
+		GLfloat color[4];
+	};
+
+	static Buffers Buffers;
+	static std::vector<Vertex> VertexData;
+	static std::vector<GLubyte> Indices;
 	std::vector<Block*> FieldBlocks;
 	Block *ActiveBlock = nullptr;
 	Block *AddBlock();
@@ -22,6 +30,8 @@ protected:
 public:
 	Field();
 	~Field();
+	void static Init();
+	void static DeInit();
 	void Start(unsigned char Width, unsigned char Length, unsigned char Height);
 	void Destroy();
 	bool HaveSpace();
