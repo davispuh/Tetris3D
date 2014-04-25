@@ -14,10 +14,16 @@ const enum class GameState
 	End
 };
 
+struct MousePosition {
+	int x;
+	int y;
+};
+
 class Tetris3D
 {
 protected:
 	sf::RenderWindow *Window;
+	MousePosition PreviousMousePosition;
 	Shader Shader;
 	GameState State;
 	inline void SetWindowIcon();

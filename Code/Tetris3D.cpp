@@ -101,7 +101,7 @@ void Tetris3D::ProcessEvents()
 	{
 		switch (event.type)
 		{
-		case sf::Event::Closed: // Close window : exit
+		case sf::Event::Closed:
 			Window->close();
 			break;
 		case sf::Event::GainedFocus:
@@ -111,10 +111,20 @@ void Tetris3D::ProcessEvents()
 		case sf::Event::Resized:
 			Resize(event.size.width, event.size.height);
 			break;
+		case sf::Event::MouseButtonPressed:
+			if (event.mouseButton.button == sf::Mouse::Button::Left)
+			{
+				PreviousMousePosition.x = event.mouseButton.x;
+				PreviousMousePosition.y = event.mouseButton.y;
+			};
+			break;
 		case sf::Event::KeyPressed:
 			switch (event.key.code)
 			{
-			case  sf::Keyboard::Escape: // Escape key : exit
+			case  sf::Keyboard::R:
+				World::ResetView();
+				break;
+			case  sf::Keyboard::Escape:
 				Window->close();
 				break;
 			}
@@ -132,6 +142,17 @@ void Tetris3D::Run()
 		sf::Time ElapsedTime = clock.restart();
 		ProcessEvents();
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+		{
+			sf::Vector2u size = Window->getSize();
+			sf::Vector2i pos = sf::Mouse::getPosition();
+			float x = (float)pos.x - PreviousMousePosition.x;
+			float y = (float)pos.y - PreviousMousePosition.y;
+			PreviousMousePosition.x = pos.x;
+			PreviousMousePosition.y = pos.y;
+			World::RotateView((x * 6.0f) / (float)size.x, glm::vec3(0.0f, 1.0f, 0.0f));
+			World::RotateView((y * 6.0f) / (float)size.y, glm::vec3(1.0f, 0.0f, 0.0f));
+		};
 		if (State == GameState::Play)
 		{
 			if (Field.HaveSpace())
