@@ -194,6 +194,7 @@ copy /Y "$(SFML)bin\sfml-graphics-2.dll" "$(OutDir)"</Command>
     <ClCompile Include="Code\Blocks\BlockZ.cpp" />
     <ClCompile Include="Code\Field.cpp" />
     <ClCompile Include="Code\main.cpp" />
+    <ClCompile Include="Code\Shader.cpp" />
     <ClCompile Include="Code\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -215,6 +216,7 @@ copy /Y "$(SFML)bin\sfml-graphics-2.dll" "$(OutDir)"</Command>
     <ClInclude Include="Code\Blocks\BlockZ.hpp" />
     <ClInclude Include="Code\Field.hpp" />
     <ClInclude Include="Code\Resource.hpp" />
+    <ClInclude Include="Code\Shader.hpp" />
     <ClInclude Include="Code\stdafx.hpp" />
     <ClInclude Include="Code\targetver.hpp" />
     <ClInclude Include="Code\Tetris3D.hpp" />
@@ -225,6 +227,10 @@ copy /Y "$(SFML)bin\sfml-graphics-2.dll" "$(OutDir)"</Command>
   <ItemGroup>
     <Image Include="Resources\small.ico" />
     <Image Include="Resources\Tetris3D.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FragmentShader.glsl" />
+    <None Include="Resources\VertexShader.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -19,6 +19,9 @@
     <Filter Include="Source Files\Blocks">
       <UniqueIdentifier>{b3822990-f4c7-400c-a9b9-2326d5dd1bee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{e979da85-7d93-42c1-a2f9-9feecad097ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\Tetris3D.cpp">
@@ -61,6 +64,9 @@
       <Filter>Source Files\Blocks</Filter>
     </ClCompile>
     <ClCompile Include="Code\BaseBlock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -110,6 +116,9 @@
     <ClInclude Include="Code\BaseBlock.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Shader.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Code\Tetris3D.rc">
@@ -123,6 +132,14 @@
     <Image Include="Resources\Tetris3D.ico">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FragmentShader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Resources\VertexShader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.md" />

@@ -2,6 +2,11 @@
 
 #include "resource.hpp"
 
+const enum class UniformBindings
+{
+	Transformation = 0
+};
+
 const enum class GameState
 {
 	Play = 0,
@@ -13,6 +18,7 @@ class Tetris3D
 {
 protected:
 	sf::RenderWindow *Window;
+	Shader Shader;
 	GameState State;
 	inline void SetWindowIcon();
 	inline void InitializeOpenGL();

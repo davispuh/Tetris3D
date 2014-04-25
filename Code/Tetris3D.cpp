@@ -17,9 +17,19 @@ inline void Tetris3D::SetWindowIcon()
 
 inline void Tetris3D::InitializeOpenGL()
 {
+	if (!Shader.isAvailable())
+		throw;
+
+	if (!Shader.loadFromFile("Resources/VertexShader.glsl", "Resources/FragmentShader.glsl"))
+		throw;
+
 	glewExperimental = GL_TRUE;
 	if (glewInit() != GLEW_OK)
 		throw;
+
+	sf::Shader::bind(&Shader);
+
+	Shader.setBlockBinding("Transformation", (unsigned int)UniformBindings::Transformation);
 
 
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
