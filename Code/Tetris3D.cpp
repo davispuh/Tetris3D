@@ -31,6 +31,7 @@ inline void Tetris3D::InitializeOpenGL()
 
 	Shader.setBlockBinding("Transformation", (unsigned int)UniformBindings::Transformation);
 
+	World::Bind((unsigned int)UniformBindings::Transformation);
 
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClearDepth(1.0f);
@@ -54,18 +55,16 @@ inline void Tetris3D::InitializeOpenGL()
 	Resize(Window->getSize().x, Window->getSize().y);
 }
 
+inline void Tetris3D::DeInitializeOpenGL()
+{
+	World::UnBind();
+}
+
 void Tetris3D::Resize(GLsizei x, GLsizei y)
 {
 	glViewport(0, 0, x, y);
-
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-
-	GLfloat ratio = static_cast<float>(x) / y;
-	glFrustum(-ratio, ratio, -1.f, 1.f, 1.f, 500.f);
-
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
+	float ratio = static_cast<float>(x) / y;
+	World::UpdatePerspective(ratio);
 }
 
 Tetris3D::Tetris3D()
@@ -86,6 +85,7 @@ Tetris3D::Tetris3D()
 
 Tetris3D::~Tetris3D()
 {
+	DeInitializeOpenGL();
 	delete Window;
 }
 

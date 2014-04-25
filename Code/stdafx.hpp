@@ -25,6 +25,9 @@
 #include <SFML/OpenGL.hpp>
 
 #include <vector>
+#include <stack>
+
+#include "World.hpp"
 
 #include "BaseBlock.hpp"
 #include "Block.hpp"

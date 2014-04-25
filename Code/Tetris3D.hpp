@@ -22,6 +22,7 @@ protected:
 	GameState State;
 	inline void SetWindowIcon();
 	inline void InitializeOpenGL();
+	inline void DeInitializeOpenGL();
 	void ProcessEvents();
 	void Resize(GLsizei x, GLsizei y);
 	Field Field;

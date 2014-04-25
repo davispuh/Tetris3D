@@ -202,6 +202,7 @@ copy /Y "$(SFML)bin\sfml-graphics-2.dll" "$(OutDir)"</Command>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Code\Tetris3D.cpp" />
+    <ClCompile Include="Code\World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\BaseBlock.hpp" />
@@ -220,6 +221,7 @@ copy /Y "$(SFML)bin\sfml-graphics-2.dll" "$(OutDir)"</Command>
     <ClInclude Include="Code\stdafx.hpp" />
     <ClInclude Include="Code\targetver.hpp" />
     <ClInclude Include="Code\Tetris3D.hpp" />
+    <ClInclude Include="Code\World.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Code\Tetris3D.rc" />
